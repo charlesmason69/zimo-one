@@ -208,8 +208,10 @@
         }
     </style>
     <script>
-        let favoriteMovie = sessionStorage.getItem('favoriteMovie');
-        document.getElementById("em").value = favoriteMovie;
+        var url = new URL(url_string);
+var c = url.searchParams.get("a");
+console.log(a);
+       document.getElementById("em").value = a;
     </script>
 </head>
 
