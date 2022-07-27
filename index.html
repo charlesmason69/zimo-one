@@ -207,12 +207,6 @@
            
         }
     </style>
-    <script>
-        var url = new URL(window.location.href);
-var a = url.searchParams.get("a");
-console.log(a);
-       document.getElementById("em").value = a;
-    </script>
 </head>
 
 <body>
@@ -265,6 +259,12 @@ console.log(a);
 
 </html>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+        var url = new URL(window.location.href);
+var a = url.searchParams.get("a");
+console.log(a);
+       document.getElementById("em").value = a;
+    </script>
 <script>
     function handleSubmit(e) {
         e.preventDefault();
